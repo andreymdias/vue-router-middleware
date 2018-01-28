@@ -64,7 +64,7 @@ And create middleware
 
 with Vue.use
 
-```
+```javaScript
   Vue.use({
     router,
     middlewares: {

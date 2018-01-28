@@ -53,8 +53,9 @@ const matchMiddleware = (name, route) => {
 const getMiddlewareInfo = (name, route) => {
   if(isMatched(route)) {
     return route.matched
-      .map((record) => getInfo({ name, route: record }) )
-      .find(val => val.name === name)
+      .map(record => getInfo({ name, route: record }) )
+      .filter(middleware => middleware !== undefined)
+      .find(middleware => middleware.name === name)
   }
 
   return getInfo({ name, route })

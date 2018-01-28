@@ -1,6 +1,6 @@
 {
   "name": "vue-router-middleware",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Get more power to vue-router with middlewares",
   "main": "dist/index.js",
   "author": "Andrey Dias <andrey.m.dias@gmail.com>",
