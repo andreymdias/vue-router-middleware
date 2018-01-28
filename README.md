@@ -65,7 +65,8 @@ And create middleware
 with Vue.use
 
 ```javaScript
-  Vue.use({
+
+  Vue.use(VueRouterMiddleware, {
     router,
     middlewares: {
       // Convert to camelcase to dash string ex. requireAuth saves require-auth
