@@ -154,7 +154,7 @@ Capture on middleware is canceled
 ```
 
 Simple, a right?
-You need more ? [Full documents here](https://andreymdias.github.io/vue-router-middleware)
+You need more ? ~~[Full documents here](https://andreymdias.github.io/vue-router-middleware)~~
 
 ## License
 
