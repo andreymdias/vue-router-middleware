@@ -1,0 +1,59 @@
+{
+  "name": "vue-router-middleware",
+  "version": "0.1.0",
+  "description": "Get more power to vue-router with middlewares",
+  "main": "dist/index.js",
+  "author": "Andrey Dias <andrey.m.dias@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.10",
+    "ava": "^0.24.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "browser-env": "^3.2.4",
+    "eslint": "^4.16.0",
+    "eslint-loader": "^1.9.0",
+    "gh-pages": "^1.1.0",
+    "nyc": "^11.4.1",
+    "require-extension-hooks": "^0.3.2",
+    "require-extension-hooks-babel": "^0.1.1",
+    "require-extension-hooks-vue": "^0.4.1",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1",
+    "webpack": "^3.10.0",
+    "webpack-dashboard": "^1.1.1",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1"
+  },
+  "scripts": {
+    "test": "ava",
+    "test::coverage": "nyc npm test",
+    "prebuild": "npm run test::coverage",
+    "build": "webpack --config ./build/build.webpack.js"
+  },
+  "nyc": {
+    "exclude": [
+      "build",
+      "dist"
+    ],
+    "include": [
+      "src/**/*.js"
+    ]
+  },
+  "ava": {
+    "babel": {
+      "babelrc": true,
+      "presets": ["@ava/stage-4"]
+    },
+    "require": [
+      "./tests/helpers/setup.js",
+      "babel-polyfill",
+      "babel-register"
+    ]
+  }
+}
