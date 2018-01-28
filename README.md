@@ -1,15 +1,18 @@
 <h1 align=center>VUE ROUTER MIDDLEWARE</h1>
-
-<p align=center>Create multiple validations in vue router with middlewares</p>
+<p align=center>🔥 Get more power to Vue Router with middlewares. 🔥</p>
 
 ------
 ## Instalation
 
 with [npm](https://npmjs.com)
-`npm install --save vue-router-middleware`
+```bash
+  npm install --save vue-router-middleware
+```
 
 with [yarn](https://yarnpkg.com/)
-`yarn add vue-router-middleware`
+```bash
+  yarn add vue-router-middleware
+```
 
 
 ## Get Started
