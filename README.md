@@ -131,10 +131,10 @@ Use [Spread Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Re
       component: LoginComponent
     }
   ]
+  Vue.use(VueRouter)
 
   const router = new VueRouter({ routes })
 
-  Vue.use(VueRouter)
   Vue.use(VueRouterMiddleware, { router })
 ```
 
@@ -158,7 +158,8 @@ Capture on middleware is canceled
 ```
 
 Simple, a right?
-You need more ? ~~[Full documents here](https://andreymdias.github.io/vue-router-middleware)~~
+You need more ?
+~~[Full documentation here](https://andreymdias.github.io/vue-router-middleware)~~
 
 ## License
 

@@ -1,36 +1,38 @@
-export default (options, arr) => {
+import camelToDash from '../helpers/camelToDash'
 
-	const pushMeta = (option) => {
-		return arr.map((route) => {
-			if(!route.meta) {
-				route.meta = {
-					middlewares: []
-				}
-			}
 
-			if(!route.meta.middlewares) {
-				route.meta.middlewares = []
-			}
+/**
+* Add middlewares meta in route
+*/
 
-			if(route.meta.middlewares.indexOf(option) == -1)
-				route.meta.middlewares.push(option)
+const addMiddlewareMeta = (route, middleware) => {
+	const camelMiddleware = camelToDash(middleware)
 
-			return route
-		})
+	if(!route.meta)
+		route.meta = { middlewares: [] }
+
+	if(!route.meta.middlewares)
+		route.meta.middlewares = []
+
+	if(route.meta.middlewares.indexOf(camelMiddleware) == -1)
+		route.meta.middlewares.push(camelMiddleware)
+
+	return route
+}
+
+export default (options) => {
+
+	return (routes = []) => {
+		if(!options)
+			return routes
+
+		if(Array.isArray(options))
+			return options.reduce((reducedRoute, option) => {
+				return (reducedRoute).map(
+					route => addMiddlewareMeta(route, option)
+				)
+			}, [addMiddlewareMeta(routes[0], options[0])])
+		else
+			return routes.map(route => addMiddlewareMeta(route, options))
 	}
-
-  if(!options){
-    return arr
-  }
-	if (Array.isArray(options)) {
-    let routes = arr
-
-    for(let i = 0, len = options.length; i < len; i++) {
-      routes = pushMeta(options[i])
-    }
-
-    return routes
-  } else {
-    return pushMeta(options)
-  }
 }
